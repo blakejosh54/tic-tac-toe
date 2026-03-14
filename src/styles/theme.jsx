@@ -14,7 +14,7 @@ export const lightTheme = {
     purple: "#8437f9",
     yellow: "#f9c811",
 
-    text: "#202124",
+    Text: "#202124",
   },
   size: {
     web: {
@@ -49,7 +49,7 @@ export const darkTheme = {
     purple: "#8437f9",
     yellow: "#f9c811",
 
-    text: "#F6F1EB",
+    Text: "#F6F1EB",
   },
   size: {
     web: {

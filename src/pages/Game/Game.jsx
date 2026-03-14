@@ -15,7 +15,12 @@ function Game() {
       />
       <GameBoardStyle>
         {game.board.map((item, index) => (
-          <GameCell key={index} cellItem={item} index={index} />
+          <GameCell
+            key={index}
+            cellItem={item}
+            index={index}
+            isWinningCell={game.winningCombo?.includes(index) || false}
+          />
         ))}
       </GameBoardStyle>
       <Player
