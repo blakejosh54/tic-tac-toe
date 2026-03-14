@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { MusicPlayerWrapper } from "./MusicPlayer.styled";
-import playList from "../../utils/MusicUtils/playList";
+import playList from "../../utils/MusicUtils/playlist";
 import { randomizeIndex } from "../../utils/MusicUtils";
 import { PlayIcon, PauseIcon, NextIcon } from "./MusicPlayer.styled";
 import { SfxContext } from "../../contexts/SfxContext";
@@ -18,7 +18,7 @@ function MusicPlayer() {
       const promise = playerRef.current?.play();
       setPlayPromise(promise);
 
-      if (playerRef.current?.volume) {
+      if (playerRef.current) {
         playerRef.current.volume = 0.1;
       }
 

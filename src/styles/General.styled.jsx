@@ -24,9 +24,12 @@ export const Title = styled.h1`
   font-size: 4rem;
   font-family: "Pacifico", cursive;
   background-color: transparent;
+  text-align: center;
+  line-height: 1.15;
+  word-break: break-word;
 
   ${(props) => props.theme.media.mobile} {
-    font-size: 5rem;
+    font-size: 3.5rem;
   }
 `;
 
@@ -36,6 +39,12 @@ export const SubTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 200;
   background: transparent;
+  text-align: center;
+  line-height: 1.4;
+
+  ${(props) => props.theme.media.mobile} {
+    font-size: 1.7rem;
+  }
 `;
 
 export const Text = styled.p`
@@ -43,4 +52,9 @@ export const Text = styled.p`
     props.primary ? props.theme.colors.secondary : props.theme.colors.Text};
   font-size: 1.2rem;
   background: transparent;
+  text-align: center;
+
+  ${(props) => props.theme.media.mobile} {
+    font-size: 1rem;
+  }
 `;

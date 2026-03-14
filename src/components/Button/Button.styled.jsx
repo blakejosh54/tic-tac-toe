@@ -1,23 +1,35 @@
 import styled from "styled-components";
 
 export const ButtonWrapper = styled.button`
-  color: ${(props) => props.theme.colors.primary};
-  background-color: ${(props) => props.color ? props.color : props.theme.colors.secondary};
-  padding: 20px 30px;
-  min-width: 300px;
-  font-size: 1.5rem;
-  margin: 20px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 400;
+  color: ${(p) => p.theme.colors.primary};
+  background-color: ${(p) => (p.color ? p.color : p.theme.colors.secondary)};
 
+  padding: 18px 26px;
+  width: 90%;
+  max-width: 340px;
+
+  font-size: 1.3rem;
+
+  margin: 10px auto; /* ⭐ THIS CENTERS THE BUTTON */
+
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: 0.2s;
 
   &:hover {
-    box-shadow: 0px 0px 10px ${(props) => props.theme.colors.purple};;
+    box-shadow: 0px 0px 10px ${(p) => p.theme.colors.purple};
     cursor: pointer;
   }
 
-  ${(props) => props.theme.media.mobile} {
-    min-width: 100;
+  @media (max-width: 392px) {
+    width: 92%;
+    max-width: 300px;
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 360px) {
+    width: 94%;
+    font-size: 1.2rem;
   }
 `;
