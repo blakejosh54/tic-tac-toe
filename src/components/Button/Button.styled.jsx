@@ -10,7 +10,7 @@ export const ButtonWrapper = styled.button`
 
   font-size: 1.3rem;
 
-  margin: 10px auto; /* ⭐ THIS CENTERS THE BUTTON */
+  margin: 10px auto;
 
   border: none;
   border-radius: 12px;

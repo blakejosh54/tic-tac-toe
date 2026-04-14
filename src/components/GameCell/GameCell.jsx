@@ -8,31 +8,30 @@ import XIconOutline from "../../assets/icon-x-outline.svg?react";
 import OIconOutline from "../../assets/icon-o-outline.svg?react";
 import { ModalContext } from "../../contexts/ModalContext";
 import RoundOverModal from "../Modal/RoundOverModals/RoundOverModal";
-import { SfxContext } from "../../contexts/SfxContext";
 
 function GameCell({ cellItem, index, isWinningCell }) {
   const { updateBoard, game, roundComplete } = useContext(GameContext);
   const { handleModal } = useContext(ModalContext);
-  const { hoverSfx, clickSfx, winSfx, completedSfx } = useContext(SfxContext);
 
   const cellClickHandler = () => {
-    clickSfx();
-    const updatedBoard = [...game.board];
-    updatedBoard[index] = game.turn;
+    if (game.board[index] || game.roundWinner) return;
+
+
+    const currentPlayer = game.turn;
+
+    const newBoard = [...game.board];
+    newBoard[index] = currentPlayer;
 
     updateBoard(index);
 
-    const result = checkForWinner(updatedBoard);
+    const result = checkForWinner(newBoard);
+
     if (result) {
-      roundComplete(result);
+      roundComplete(result, currentPlayer);
+
       setTimeout(() => {
         handleModal(<RoundOverModal />);
       }, 2000);
-      if (result !== "draw") {
-        winSfx();
-      } else {
-        completedSfx();
-      }
     }
   };
 
@@ -51,7 +50,7 @@ function GameCell({ cellItem, index, isWinningCell }) {
   }
 
   return (
-    <CellStyle onClick={cellClickHandler} onMouseEnter={() => hoverSfx()}>
+    <CellStyle onClick={cellClickHandler}>
       {game.turn === "x" ? (
         <XIconOutline className="outlineIconX" />
       ) : (
