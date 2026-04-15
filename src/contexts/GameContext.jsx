@@ -7,6 +7,7 @@ export const GameContext = createContext({});
 // initial state
 const initialState = {
   board: Array(9).fill(null),
+  history: [],
   player1: {
     choice: "x",
     name: "Player 1",
@@ -54,6 +55,10 @@ export const GameContextProvider = ({ children }) => {
     dispatch({ type: "SWITCH_PLAYERS" });
   };
 
+  const undoMove = () => {
+    dispatch({ type: "UNDO_MOVE" });
+  };
+
   const roundComplete = (result, playerTurn) => {
     if (result === "draw") {
       updateScore("draw", result);
@@ -74,6 +79,7 @@ export const GameContextProvider = ({ children }) => {
         resetBoard,
         restartGame,
         roundComplete,
+        undoMove,
       }}
     >
       {children}

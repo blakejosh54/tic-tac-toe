@@ -1,18 +1,20 @@
 import React, { useContext } from "react";
 import { Container } from "../../styles/General.styled";
-import { GameBoardStyle } from "./Game.styled";
+import { GameBoardStyle, UndoContainer } from "./Game.styled";
 import GameCell from "../../components/GameCell/GameCell";
 import { GameContext } from "../../contexts/GameContext";
 import Player from "../../components/Player/Player";
+import Button from "../../components/Button/Button";
 
 function Game() {
-  const { game } = useContext(GameContext);
+  const { game, undoMove } = useContext(GameContext);
   return (
     <Container>
       <Player
         player={game.player1}
         isPlayerActive={game.player1.choice === game.turn}
       />
+
       <GameBoardStyle>
         {game.board.map((item, index) => (
           <GameCell
@@ -23,6 +25,13 @@ function Game() {
           />
         ))}
       </GameBoardStyle>
+
+      <UndoContainer>
+        <Button onClick={undoMove} disabled={game.history.length === 0}>
+          Undo Last Move
+        </Button>
+      </UndoContainer>
+
       <Player
         player={game.player2}
         isPlayerActive={game.player2.choice === game.turn}
