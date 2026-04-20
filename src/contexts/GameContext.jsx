@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 import { genConfig } from "react-nice-avatar";
-import { GameReducer } from "../../reducers/GameReducer";
+import { GameReducer } from "../reducers/GameReducer";
 
 export const GameContext = createContext({});
 
