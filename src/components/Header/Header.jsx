@@ -4,9 +4,10 @@ import { HeaderWrapper, LightModeIcon, DarkModeIcon } from "./Header.styled";
 import Logo from "../../assets/tic-tac-toe.svg?react";
 import { useNavigate } from "react-router-dom";
 
-function Header() {
+function Header({ children }) {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <HeaderWrapper>
       <Logo
@@ -15,6 +16,9 @@ function Header() {
           navigate("/");
         }}
       />
+
+      <div className="header-center">{children}</div>
+
       <span
         onClick={() => {
           toggleTheme();

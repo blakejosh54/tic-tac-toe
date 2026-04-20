@@ -68,7 +68,11 @@ export const GameContextProvider = ({ children }) => {
       updateScore("player2", result);
     }
 
-    switchTurn();
+    const isAIPage = window.location.pathname === "/game-ai";
+
+    if (!isAIPage) {
+      switchTurn();
+    }
   };
 
   return (

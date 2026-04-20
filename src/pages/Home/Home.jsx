@@ -18,6 +18,14 @@ function Home() {
       >
         Play Now
       </Button>
+
+      <Button
+        onClick={() => {
+          navigate("/game-ai");
+        }}
+      >
+        Play vs AI
+      </Button>
     </Container>
   );
 }

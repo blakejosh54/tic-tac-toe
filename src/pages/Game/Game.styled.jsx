@@ -11,4 +11,8 @@ export const UndoContainer = styled.div`
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;

@@ -26,12 +26,6 @@ function Game() {
         ))}
       </GameBoardStyle>
 
-      <UndoContainer>
-        <Button onClick={undoMove} disabled={game.history.length === 0}>
-          Undo Last Move
-        </Button>
-      </UndoContainer>
-
       <Player
         player={game.player2}
         isPlayerActive={game.player2.choice === game.turn}
