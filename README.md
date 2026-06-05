@@ -1,6 +1,6 @@
 # ❌⭕ TicTacToe HQ
 
-A modern TicTacToe game built with **React** and **Vite** as part of a frontend internship-style assignment.
+A modern TicTacToe game built with **React** and **Vite**.
 
 This project starts as a simple 3x3 game, but it was built with **clean state management**, **scalable UI structure**, and extra features like **Undo Move** and **Play vs AI**.
 
